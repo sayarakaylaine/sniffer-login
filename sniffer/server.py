@@ -1,8 +1,11 @@
-# Importa Flask para criar o servidor e request para ler os dados recebidos
-from flask import Flask, request  
+from flask import Flask, request, render_template
 
 # Inicializa o servidor web
-app = Flask(__name__)  
+app = Flask(__name__, template_folder='web')
+
+@app.route('/')
+def index():
+    return render_template('index.html')  # Carrega o arquivo index.html da pasta 'web'
 
 # Cria o endpoint /login que aceita requisições POST
 @app.route('/login', methods=['POST'])  
