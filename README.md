@@ -1,4 +1,4 @@
-# Projeto: Sniffer + Página de Login
+# Projeto Sniffer + Página de Login
 
 ## 📌 Visão Geral
 
