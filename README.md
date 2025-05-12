@@ -56,4 +56,6 @@ python3 sniffer/server.py
 
 ### 3. Preencha o formulário e envie. O backend receberá os dados e os pacotes serão capturados pelo sniffer.
 
+## 👩🏻‍💻 Autora
+Desenvolvido por **`Sayara Kaylaine Oliveira Silva`**, sob orientação do professor **`Karan Luciano`**, no Instituto Federal de Rondônia (IFRO) - Campus Ji-Paraná.
 
