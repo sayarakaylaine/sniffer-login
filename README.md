@@ -1,62 +1,81 @@
-# Projeto Sniffer + Página de Login
+
+# Projeto: Sniffer + Página de Login
 
 ## 📌 Visão Geral
 
-Este projeto simula a captura de tráfego HTTP entre uma página de login e um servidor Flask local. Um sniffer desenvolvido em Python com `socket` e `scapy` intercepta pacotes de rede e exibe no console informações como:
+Este projeto simula tráfego HTTP gerado por uma página de login, capturado por um sniffer desenvolvido em Python com Scapy. O objetivo é demonstrar como dados trafegam pela rede e como podem ser visualizados por ferramentas de análise.
 
-- Timestamp
-- IP de origem e destino
-- Portas de origem e destino
-- Payload (conteúdo dos pacotes)
+- A página `index.html` permite o envio de usuário e senha via POST para um backend Flask.
+- O sniffer intercepta e exibe no terminal informações como timestamp, IPs, portas e payload dos pacotes HTTP/TCP ou UDP.
 
-A interface HTML simples envia requisições POST via `fetch()` para o backend local, gerando tráfego capturado pelo sniffer.
-  
 ---
 
 ## ⚙️ Pré-requisitos e Instalação
 
-- Python 3
-- Scapy
-- Flask
-  
-### Sistema operacional recomendado:
-- **Linux** (ou **WSL** no Windows)
+### Ambiente
 
-### Instale as dependências:
+- **Sistema:** Linux ou WSL (Windows Subsystem for Linux)
+- **Python 3.8+**
+- **VS Code** (ou qualquer editor)
+
+### Instalação das dependências
+
 ```bash
 pip install scapy flask
 ```
 
-## 🚀 Como Executar o Sniffer
+> ⚠️ O sniffer utiliza **raw sockets**, por isso **precisa ser executado como root**.
 
-### 1. Acesse o diretório do sniffer:
+---
+
+## ▶️ Como Executar o Projeto
+
+### 1. Iniciar o Sniffer
 
 ```bash
 cd sniffer
-```
-
-### 2. Execute com permissões elevadas:
-
-```bash
 sudo python3 sniffer.py
 ```
 
-### 3. O sniffer iniciará e mostrará os pacotes capturados diretamente no terminal.
+O sniffer irá capturar e exibir pacotes com:
 
-## 🌐 Como Iniciar a Página de Login
+- Timestamp
+- IP de origem e destino
+- Portas
+- Payload contendo "POST" ou "HTTP"
 
-### 1. Ainda no diretório do projeto, inicie o servidor Flask:
+### 2. Iniciar o Servidor Flask da Página de Login
+
+Em outro terminal:
 
 ```bash
-python3 sniffer/server.py
+cd sniffer  # A pasta web está dentro desta pasta
+python3 server.py
 ```
 
-### 2. Acesse a página de login no navegador:
+O servidor estará disponível em: [http://localhost:5000](http://localhost:5000)
 
-`http://127.0.0.1:5000`
+### 3. Acessar a Página de Login
 
-### 3. Preencha o formulário e envie. O backend receberá os dados e os pacotes serão capturados pelo sniffer.
+- Acesse manualmente [http://localhost:5000](http://localhost:5000)
+- Preencha os campos de **usuário** e **senha**
+- Clique em "Enviar" para gerar a requisição POST
 
-## 👩🏻‍💻 Autora
-Desenvolvido por **`Sayara Kaylaine Oliveira Silva`**, sob orientação do professor **`Karan Luciano`**, no Instituto Federal de Rondônia (IFRO) - Campus Ji-Paraná.
+> Você verá no terminal do Flask algo como:
+> `Requisição recebida: {'username': 'admin', 'password': '123456'}`
 
+---
+
+## 🚀 Contribuição
+
+Projeto acadêmico desenvolvido para demonstrar princípios de captura de pacotes e segurança de dados em redes.
+
+---
+
+## 🧠 Observação Final
+
+Este projeto é **educacional** e visa reforçar a compreensão sobre:
+
+- Como funciona o tráfego de dados HTTP.
+- Como sniffer pode capturar dados sensíveis.
+- A importância de segurança no transporte de informações (ex: uso de HTTPS).
