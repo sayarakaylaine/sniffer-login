@@ -8,7 +8,8 @@ Este projeto simula a captura de tráfego HTTP entre uma página de login e um s
 - IP de origem e destino
 - Portas de origem e destino
 - Payload (conteúdo dos pacotes)
-- A interface HTML simples envia requisições POST via `fetch()` para o backend local, gerando tráfego capturado pelo sniffer.
+
+A interface HTML simples envia requisições POST via `fetch()` para o backend local, gerando tráfego capturado pelo sniffer.
   
 ---
 
